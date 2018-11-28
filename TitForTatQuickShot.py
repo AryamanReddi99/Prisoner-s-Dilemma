@@ -2,14 +2,14 @@ from axelrod import player
 from axelrod import tournament
 turns=tournament.turns()
 
-class TitForTatBrutus(Player):
+class TitForTatQuickShot(Player):
     """A player starts by cooperating and then mimics previous move by opponent. 
-    At the very last move, they defect"""
+    On the first move, they sneak a quick defection and then act normally"""
 
-    name = 'Tit For Tat Brutus'
+    name = 'Tit For Tat Quick Shot'
 
     def strategy(self, opponent):
-        if len(opponent.history())==turns:
+        if len(opponent.history())==0:
             return 'D'
         else:
             try:
